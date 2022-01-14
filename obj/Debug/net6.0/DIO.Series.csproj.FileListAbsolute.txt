@@ -1,0 +1,15 @@
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\bin\Debug\net6.0\DIO.Series.exe
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\bin\Debug\net6.0\DIO.Series.deps.json
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\bin\Debug\net6.0\DIO.Series.runtimeconfig.json
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\bin\Debug\net6.0\DIO.Series.dll
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\bin\Debug\net6.0\ref\DIO.Series.dll
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\bin\Debug\net6.0\DIO.Series.pdb
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\obj\Debug\net6.0\DIO.Series.csproj.AssemblyReference.cache
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\obj\Debug\net6.0\DIO.Series.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\obj\Debug\net6.0\DIO.Series.AssemblyInfoInputs.cache
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\obj\Debug\net6.0\DIO.Series.AssemblyInfo.cs
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\obj\Debug\net6.0\DIO.Series.csproj.CoreCompileInputs.cache
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\obj\Debug\net6.0\DIO.Series.dll
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\obj\Debug\net6.0\ref\DIO.Series.dll
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\obj\Debug\net6.0\DIO.Series.pdb
+C:\Users\acspr\VS-Code-Workspace\Criando um APP simples de cadastro de séries em .NET\DIO.Series\obj\Debug\net6.0\DIO.Series.genruntimeconfig.cache
