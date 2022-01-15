@@ -29,7 +29,7 @@ namespace DIO.Series
             retorno += "Titulo: " + this.Titulo + Environment.NewLine;
             retorno += "Descrição: " + this.Descricao + Environment.NewLine;
             retorno += "Ano de Início: " + this.Ano + Environment.NewLine;
-            retorno += "Nota notaIMDB: " + this.notaIMDB + Environment.NewLine;
+            retorno += "Nota no IMDB: " + this.notaIMDB + Environment.NewLine;
             retorno += "Excluido: " + this.Excluido;
             return retorno;
         }

@@ -111,8 +111,13 @@ namespace DIO.Series
         {
             Console.Write("Digite o id da série: ");
             int indiceSerie = int.Parse(Console.ReadLine());
+            indiceSerie = testarEntradaSeries(indiceSerie);
 
-            repositorioSeries.Exclui(indiceSerie);
+            if (indiceSerie != -1)
+            {
+                repositorioSeries.Exclui(indiceSerie);
+            }
+
         }
         private static void InserirSerie()
         {
@@ -129,30 +134,47 @@ namespace DIO.Series
         private static void VisualizarSerie()
         {
             Console.Write("Digite o id da série: ");
+
             int indiceSerie = int.Parse(Console.ReadLine());
+            indiceSerie = testarEntradaSeries(indiceSerie);
 
-            var serie = repositorioSeries.RetornaPorId(indiceSerie);
+            if (indiceSerie != -1)
+            {
+                var serie = repositorioSeries.RetornaPorId(indiceSerie);
+                Console.WriteLine(serie);
+            }
 
-            Console.WriteLine(serie);
+
+        }
+
+        private static int testarEntradaSeries(int indiceSerie)
+        {
+            //Retorna true se a entrada for valida caso contrario retorna false
+            if (repositorioSeries.ProximoId() == 0)
+            {
+                Console.WriteLine("Nenhuma série cadastrada!!!");
+                return -1;
+            }
+            if (indiceSerie > repositorioSeries.ProximoId())
+            {
+                //Vefica se o ID informado é valido
+                while (indiceSerie > repositorioSeries.ProximoId() - 1)
+                {
+                    Console.WriteLine($"ID invalido, o repositório só possui {repositorioSeries.ProximoId()} séries cadastradas!!!");
+                    indiceSerie = int.Parse(Console.ReadLine());
+                }
+            }
+
+            return indiceSerie;
         }
 
         private static void AtualizarSerie()
         {
             Console.Write("Digite o id da série: ");
             int indiceSerie = int.Parse(Console.ReadLine());
-
-            if (repositorioSeries.ProximoId() == 0)
+            indiceSerie = testarEntradaSeries(indiceSerie);
+            if (indiceSerie != -1)
             {
-                Console.WriteLine("Nenhuma série cadastrada!!!");
-            }
-            else
-            {
-                //Vefica se o ID informado é valido
-                while (indiceSerie > repositorioSeries.ProximoId() - 1)
-                {
-                    Console.WriteLine($"ID invalido, o repositório só possui {repositorioSeries.ProximoId()} séries cadastradas!");
-                    indiceSerie = int.Parse(Console.ReadLine());
-                }
                 Serie atualizaSerie = ManagerSeries(indiceSerie);
                 repositorioSeries.Atualiza(indiceSerie, atualizaSerie);
             }
@@ -165,6 +187,7 @@ namespace DIO.Series
             {
                 Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
             }
+
             Console.Write("Digite o gênero entre as opções acima: ");
             int entradaGenero = int.Parse(Console.ReadLine());
 
@@ -200,46 +223,61 @@ namespace DIO.Series
             foreach (var serie in lista)
             {
                 var excluido = serie.retornaExcluido();
-
                 Console.WriteLine("");
                 Console.WriteLine("#ID {0}: - {1} {2}", serie.retornaId(), serie.retornaTitulo(), (excluido ? "*Excluído*" : ""));
             }
+        }
+        private static int testarEntradaFilmes(int indiceFilmes)
+        {
+            //Retorna true se a entrada for valida caso contrario retorna false
+            if (repositorioFilmes.ProximoId() == 0)
+            {
+                Console.WriteLine("Nenhuma filme cadastrado!!!");
+                return -1;
+            }
+            if (indiceFilmes > repositorioFilmes.ProximoId())
+            {
+                //Vefica se o ID informado é valido
+                while (indiceFilmes > repositorioFilmes.ProximoId() - 1)
+                {
+                    Console.WriteLine($"ID invalido, o repositório só possui {repositorioFilmes.ProximoId()} filmes cadastrados!!!");
+                    indiceFilmes = int.Parse(Console.ReadLine());
+                }
+            }
+
+            return indiceFilmes;
         }
         private static void ExcluirFilme()
         {
             Console.Write("Digite o id do filme: ");
             int indiceFilme = int.Parse(Console.ReadLine());
-
-            repositorioSeries.Exclui(indiceFilme);
+            indiceFilme = testarEntradaFilmes(indiceFilme);
+            if (indiceFilme != -1)
+            {
+                repositorioFilmes.Exclui(indiceFilme);
+            }
         }
 
         private static void VisualizarFilme()
         {
             Console.Write("Digite o id do filme: ");
             int indiceFilme = int.Parse(Console.ReadLine());
-
-            var filme = repositorioFilmes.RetornaPorId(indiceFilme);
-
-            Console.WriteLine(filme);
+            indiceFilme = testarEntradaFilmes(indiceFilme);
+            if (indiceFilme != -1)
+            {
+                var filme = repositorioFilmes.RetornaPorId(indiceFilme);
+                Console.WriteLine(filme);
+            }
         }
         private static void AtualizarFilmes()
         {
             Console.Write("Digite o id do filme: ");
             int indiceFilme = int.Parse(Console.ReadLine());
-            if (repositorioSeries.ProximoId() == 0)
+            indiceFilme = testarEntradaFilmes(indiceFilme);
+            if (indiceFilme != -1)
             {
-                Console.WriteLine("Nenhuma série cadastrada!!!");
-            }
-            else
-            {
-                //Vefica se o ID informado é valido
-                while (indiceFilme > repositorioSeries.ProximoId() - 1)
-                {
-                    Console.WriteLine($"ID invalido, o repositório só possui {repositorioFilmes.ProximoId()} filmes cadastrados!");
-                    indiceFilme = int.Parse(Console.ReadLine());
-                }
-				Filme atualizaFilme = ManagerFilmes(indiceFilme);
-				repositorioFilmes.Atualiza(indiceFilme, atualizaFilme);
+                Filme atualizaFilme = ManagerFilmes(indiceFilme);
+                repositorioFilmes.Atualiza(indiceFilme, atualizaFilme);
             }
         }
         private static Filme ManagerFilmes(int indice)
