@@ -15,6 +15,7 @@ namespace DIO.Series
             opcaoUsuario = opcaoUsuarioComTipoConteudo[0];
             string tipoConteudo = opcaoUsuarioComTipoConteudo[1];
 
+
             while (opcaoUsuario.ToUpper() != "X")
             {
                 if (tipoConteudo == "SERIE")
@@ -107,6 +108,9 @@ namespace DIO.Series
             Console.ReadLine();
         }
 
+        private static void AdicionarFilmesAutomatico(){
+            
+        }
         private static void ExcluirSerie()
         {
             Console.Write("Digite o id da série: ");
@@ -357,7 +361,13 @@ namespace DIO.Series
                 Console.WriteLine("Opcao invalida!!!");
                 opcaoUsuario = Console.ReadLine().ToUpper();
             }
-            return opcaoUsuario == "1" ? ObterOpcaoUsuarioFilmes() : ObterOpcaoUsuarioSeries();
+            if(opcaoUsuario == "1"){
+                return ObterOpcaoUsuarioFilmes();
+            }else if(opcaoUsuario == "2"){
+                return ObterOpcaoUsuarioSeries();
+            }else{
+                return "X ";
+            }
         }
 
         private static string ObterOpcaoUsuarioSeries()
