@@ -37,6 +37,9 @@ namespace DIO.Series
                         case "5":
                             VisualizarSerie();
                             break;
+                        case "6":
+                            PopularListaSeries();
+                            break;
                         case "C":
                             try
                             {
@@ -77,6 +80,9 @@ namespace DIO.Series
                         case "5":
                             VisualizarFilme();
                             break;
+                        case "6":
+                            PopularListaFilmes();
+                            break;
                         case "C":
                             try
                             {
@@ -108,8 +114,79 @@ namespace DIO.Series
             Console.ReadLine();
         }
 
-        private static void AdicionarFilmesAutomatico(){
-            
+        private static void PopularListaSeries()
+        {
+            int indice = repositorioSeries.ProximoId();
+            int entradaGenero = 9;
+            string entradaTitulo = "Star trek discovery";
+            int entradaAno = 2017;
+            string entradaDescricao = "Star Trek: Discovery é uma série de televisão norte-americana criada por Bryan Fuller e Alex Kurtzman, é exibida pela CBS All Access nos Estados Unidos e Canada e pela Netflix no resto do mundo.";
+
+            repositorioSeries.Insere(Adicionar(indice, entradaGenero, entradaTitulo, entradaAno, entradaDescricao));
+
+            indice = repositorioSeries.ProximoId();
+            entradaGenero = 3;
+            entradaTitulo = "Bing Bang Theory";
+            entradaAno = 2007;
+            entradaDescricao = "The Big Bang Theory é uma series de que conta a história de um grupo de amigos cientistas e a Penny";
+            repositorioSeries.Insere(Adicionar(indice, entradaGenero, entradaTitulo, entradaAno, entradaDescricao));
+
+            indice = repositorioSeries.ProximoId();
+            entradaGenero = 3;
+            entradaTitulo = "Young Sheldon";
+            entradaAno = 2017;
+            entradaDescricao = "Young Sheldon é uma série de televisão americana da CBS como um spin-off da série The Big Bang Theory e serve como uma prequela da série, apresentando o personagem Sheldon Cooper como uma criança vivendo com sua família no Leste do Texas e indo ao colégio.";
+            repositorioSeries.Insere(Adicionar(indice, entradaGenero, entradaTitulo, entradaAno, entradaDescricao));
+
+            static Serie Adicionar(int indice, int entradaGenero, string entradaTitulo, int entradaAno, string entradaDescricao)
+            {
+                return new Serie(id: indice,
+                                  genero: (Genero)entradaGenero,
+                                  titulo: entradaTitulo,
+                                  ano: entradaAno,
+                                  descricao: entradaDescricao);
+            }
+
+            Console.WriteLine("Series adicionadas com sucesso!!!");
+        }
+        private static void PopularListaFilmes()
+        {
+            int indice = repositorioFilmes.ProximoId();
+            int entradaGenero = 9;
+            string entradaTitulo = "Interestelar";
+            int entradaAno = 2014;
+            double entradaNotaIMDB = 8.6;
+            string entradaDescricao = "Conta a história de uma equipe de astronautas que viaja através de um buraco de minhoca à procura de um novo lar para a humanidade.";
+
+            repositorioFilmes.Insere(Adicionar(indice, entradaGenero, entradaTitulo, entradaAno, entradaDescricao, entradaNotaIMDB));
+
+            indice = repositorioFilmes.ProximoId();
+            entradaGenero = 3;
+            entradaTitulo = "Kung Fusão";
+            entradaAno = 2004;
+            entradaNotaIMDB = 7.8;
+            entradaDescricao = "m Xangai, no ano de 1940 vários grupos disputam o poder, e o mais temido de todos é a Gangue do Machado, liderada pelo Irmão Sum infame e apropriadamente chamado após a sua escolha de arma.";
+            repositorioFilmes.Insere(Adicionar(indice, entradaGenero, entradaTitulo, entradaAno, entradaDescricao, entradaNotaIMDB));
+
+            indice = repositorioFilmes.ProximoId();
+            entradaGenero = 3;
+            entradaTitulo = "Minha Mãe É Uma Peça 3";
+            entradaAno = 2019;
+            entradaNotaIMDB = 7.1;
+            entradaDescricao = "Após ter um piripaque, Dona Hermínia (Paulo Gustavo) recebe duas notícias: Marcelina (Mariana Xavier) está grávida de um cara que mal conhece e Juliano (Rodrigo Pandolfo) está noivo. Sofrendo ao ver que seus filhos já estão formando suas próprias famílias, ela decide focar nos preparativos para o casamento. Com o apoio de sua diarista Waldeia (Samantha Schmütz) e de suas irmãs Iesa (Alexandra Richter) e Lucia Helena (Patricya Travassos), a matriarca terá que driblar a sogra de seu filho, além de lidar com as novas investidas de Carlos Alberto (Herson Capri), seu ex-marido.";
+            repositorioFilmes.Insere(Adicionar(indice, entradaGenero, entradaTitulo, entradaAno, entradaDescricao, entradaNotaIMDB));
+
+            static Filme Adicionar(int indice, int entradaGenero, string entradaTitulo, int entradaAno, string entradaDescricao, double entradaNotaIMDB)
+            {
+                return new Filme(id: indice,
+                                  genero: (Genero)entradaGenero,
+                                  titulo: entradaTitulo,
+                                  ano: entradaAno,
+                                  descricao: entradaDescricao,
+                                  notaIMDB: entradaNotaIMDB);
+            }
+
+            Console.WriteLine("Filmes adicionados com sucesso!!!");
         }
         private static void ExcluirSerie()
         {
@@ -361,11 +438,16 @@ namespace DIO.Series
                 Console.WriteLine("Opcao invalida!!!");
                 opcaoUsuario = Console.ReadLine().ToUpper();
             }
-            if(opcaoUsuario == "1"){
+            if (opcaoUsuario == "1")
+            {
                 return ObterOpcaoUsuarioFilmes();
-            }else if(opcaoUsuario == "2"){
+            }
+            else if (opcaoUsuario == "2")
+            {
                 return ObterOpcaoUsuarioSeries();
-            }else{
+            }
+            else
+            {
                 return "X ";
             }
         }
@@ -379,6 +461,7 @@ namespace DIO.Series
             Console.WriteLine("3- Atualizar série");
             Console.WriteLine("4- Excluir série");
             Console.WriteLine("5- Visualizar série");
+            Console.WriteLine("6- Popular lista de séries");
             Console.WriteLine("C- Limpar Tela");
             Console.WriteLine("X- Sair");
             Console.WriteLine();
@@ -397,6 +480,7 @@ namespace DIO.Series
             Console.WriteLine("3- Atualizar filme");
             Console.WriteLine("4- Excluir filme");
             Console.WriteLine("5- Visualizar filme");
+            Console.WriteLine("6- Popular lista de filme");
             Console.WriteLine("C- Limpar Tela");
             Console.WriteLine("X- Sair");
             Console.WriteLine();
